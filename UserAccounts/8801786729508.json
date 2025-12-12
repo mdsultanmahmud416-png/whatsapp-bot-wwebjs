@@ -1,0 +1,20 @@
+{
+  "number": "8801786729508",
+  "role": "Customer",
+  "balance": 0,
+  "due": 120,
+  "createdAt": "11/12/2025, 11:07:56 AM",
+  "updatedAt": "12/11/2025 11:11:57 AM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 120,
+      "role": "Customer",
+      "reason": "Auto Charge",
+      "OrderKey": "271594599247",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "12/11/2025 11:11:57 AM"
+    }
+  ]
+}

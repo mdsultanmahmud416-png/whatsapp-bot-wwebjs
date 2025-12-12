@@ -1,0 +1,29 @@
+{
+  "number": "8801876773288",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "30/11/2025 12:01:13 PM",
+  "updatedAt": "04/12/2025 10:01:34 AM",
+  "history": [
+    {
+      "type": "manualCharge",
+      "amount": 200,
+      "reason": "Br namber change",
+      "role": "Customer",
+      "timestamp": "30/11/2025 12:01:13 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 200,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "04/12/2025 10:01:34 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 200,
+      "reason": "bks",
+      "timestamp": "04/12/2025 10:01:34 AM"
+    }
+  ]
+}

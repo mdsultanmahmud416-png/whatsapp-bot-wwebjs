@@ -1,0 +1,29 @@
+{
+  "number": "8801823596850",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "12/2/2025, 11:32:52 AM",
+  "updatedAt": "05/12/2025 10:37:11 AM",
+  "history": [
+    {
+      "type": "manualCharge",
+      "amount": 100,
+      "reason": "pass set",
+      "role": "Customer",
+      "timestamp": "02/12/2025 11:33:34 AM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 100,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "05/12/2025 10:37:11 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "ngd",
+      "timestamp": "05/12/2025 10:37:11 AM"
+    }
+  ]
+}

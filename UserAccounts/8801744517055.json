@@ -1,0 +1,275 @@
+{
+  "number": "8801744517055",
+  "role": "Pre_Customer",
+  "balance": 0,
+  "due": 500,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "11/12/2025 01:05:18 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "143671862",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 01:08:59 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "9106454334",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 01:18:49 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "9105772595",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 01:18:50 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "2693014972144",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 01:18:53 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "4417110303505",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 01:23:09 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19834423304409980",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 04:41:07 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "911197773703",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 06:01:52 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "113191455",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 06:49:01 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 360,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "05/12/2025 09:01:06 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 360,
+      "reason": "নগদ",
+      "timestamp": "05/12/2025 09:01:06 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "7805796526",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:19:10 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "3719935094",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:19:10 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "2848210593",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:19:10 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "9119922145",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:19:13 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "2827705092",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:52:02 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "3254148103",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:52:11 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "3274368780",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:52:15 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "7754048846",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 11:52:22 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "6864132185",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 12:04:39 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 30,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19702617239203284",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 01:22:27 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 40,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19744124707098448",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/12/2025 10:46:53 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 40,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "5520338160",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/12/2025 12:39:07 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 40,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "6869886991",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/12/2025 12:39:10 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 40,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19852657298765542",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/12/2025 12:52:03 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 40,
+      "role": "Pre_Customer",
+      "orderTag": "SignCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19550610354611717",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/12/2025 01:05:18 PM"
+    }
+  ]
+}

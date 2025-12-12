@@ -1,0 +1,32 @@
+{
+  "number": "8801745591486",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "23/11/2025 10:41:59 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "reason": "Auto Charge",
+      "OrderKey": "1014769291",
+      "Office_Number": "8801340276377",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "22/11/2025 05:43:28 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 100,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "23/11/2025 10:41:59 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "bks",
+      "timestamp": "23/11/2025 10:41:59 PM"
+    }
+  ]
+}

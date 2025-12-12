@@ -1,0 +1,29 @@
+{
+  "number": "8801813842020",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 12:30:20 PM",
+  "updatedAt": "03/11/2025 07:36:51 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 120,
+      "reason": "Auto Charge orderKey: 142323827",
+      "role": "Customer",
+      "timestamp": "03/11/2025 06:51:52 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "03/11/2025 07:36:51 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "nagad sent",
+      "timestamp": "03/11/2025 07:36:51 PM"
+    }
+  ]
+}

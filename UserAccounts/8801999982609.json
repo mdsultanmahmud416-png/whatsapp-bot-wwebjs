@@ -1,0 +1,63 @@
+{
+  "number": "8801999982609",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "05/12/2025 06:21:54 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "5989132799",
+      "Office_Number": "8801340276377",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "29/11/2025 05:03:24 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 100,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "01/12/2025 10:18:00 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "বিকাশ",
+      "timestamp": "01/12/2025 10:18:00 PM"
+    },
+    {
+      "type": "manualCharge",
+      "amount": 100,
+      "reason": "nidpdf এর জন্য",
+      "role": "Customer",
+      "timestamp": "04/12/2025 05:35:01 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "5552929175",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 07:32:57 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 200,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "05/12/2025 06:21:54 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 200,
+      "reason": "ngd",
+      "timestamp": "05/12/2025 06:21:54 PM"
+    }
+  ]
+}

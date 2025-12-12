@@ -1,0 +1,51 @@
+{
+  "number": "8801741848494",
+  "role": "Customer",
+  "balance": 70,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "01/12/2025 01:00:10 AM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "reason": "Auto Charge",
+      "OrderKey": "119858408",
+      "Office_Number": "8801602296906",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "24/11/2025 02:17:50 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 50,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "25/11/2025 12:10:32 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "bks",
+      "timestamp": "25/11/2025 12:10:32 AM"
+    },
+    {
+      "type": "manualCharge",
+      "amount": 100,
+      "reason": "Face verify",
+      "role": "Customer",
+      "timestamp": "30/11/2025 06:03:31 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 30,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "01/12/2025 01:00:10 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "bks",
+      "timestamp": "01/12/2025 01:00:10 AM"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "number": "8801936823477",
+  "role": "Customer",
+  "balance": 0,
+  "due": 120,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "11/11/2025 12:25:20 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 120,
+      "reason": "Auto Charge orderKey: 6436878174",
+      "role": "Customer",
+      "timestamp": "09/11/2025 12:40:41 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "10/11/2025 10:48:18 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "বিকাশ",
+      "timestamp": "10/11/2025 10:48:18 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 120,
+      "role": "Customer",
+      "reason": "Auto Charge orderKey: 3212183138645",
+      "OrderKey": "3212183138645",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "11/11/2025 12:25:20 PM"
+    }
+  ]
+}

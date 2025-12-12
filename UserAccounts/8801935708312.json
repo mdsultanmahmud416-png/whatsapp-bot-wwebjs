@@ -1,0 +1,67 @@
+{
+  "number": "8801935708312",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "06/12/2025 09:21:48 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "19809014747075796",
+      "Office_Number": "8801340276377",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "30/11/2025 11:31:43 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "7216373335234",
+      "Office_Number": "8801340276377",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "30/11/2025 12:45:44 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 200,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "30/11/2025 06:56:32 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 200,
+      "reason": "bks",
+      "timestamp": "30/11/2025 06:56:32 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "53699903",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "04/12/2025 12:20:43 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 100,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "06/12/2025 09:21:48 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "bks",
+      "timestamp": "06/12/2025 09:21:48 PM"
+    }
+  ]
+}

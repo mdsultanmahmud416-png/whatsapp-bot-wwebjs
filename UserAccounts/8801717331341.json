@@ -1,0 +1,17 @@
+{
+  "number": "8801717331341",
+  "role": "Customer",
+  "balance": 0,
+  "due": 1100,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "12/12/2025 10:27:08 AM",
+  "history": [
+    {
+      "type": "manualCharge",
+      "amount": 240,
+      "reason": "2 টা আইডি কার্ড",
+      "role": "Customer",
+      "timestamp": "12/12/2025 10:27:08 AM"
+    }
+  ]
+}

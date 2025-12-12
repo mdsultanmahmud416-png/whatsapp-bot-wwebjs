@@ -1,0 +1,69 @@
+{
+  "number": "8801717963861",
+  "role": "Customer",
+  "balance": 0,
+  "due": 1410,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "07/12/2025 03:33:13 PM",
+  "history": [
+    {
+      "type": "manualCharge",
+      "amount": 4500,
+      "reason": "sarvarcopy এর জন্য",
+      "role": "Customer",
+      "timestamp": "01/12/2025 12:30:56 AM"
+    },
+    {
+      "type": "charge",
+      "amount": 80,
+      "role": "Customer",
+      "orderTag": "SarverCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "19953213022000146",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "01/12/2025 02:14:24 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 80,
+      "role": "Customer",
+      "orderTag": "SarverCopy",
+      "reason": "Auto Charge",
+      "OrderKey": "6439499515",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "01/12/2025 02:14:27 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 5430,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "01/12/2025 10:14:54 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 5430,
+      "reason": "bks 430 টাকা ছাড়",
+      "timestamp": "01/12/2025 10:14:54 PM"
+    },
+    {
+      "type": "manualCharge",
+      "amount": 1080,
+      "reason": "12 টা sarvercopy 90 টাকা করে।",
+      "role": "Customer",
+      "timestamp": "03/12/2025 10:45:34 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "6883907211",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 03:33:13 PM"
+    }
+  ]
+}

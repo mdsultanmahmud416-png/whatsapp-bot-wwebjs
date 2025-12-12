@@ -1,0 +1,22 @@
+{
+  "number": "8801753682955",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "12/12/2025 10:22:15 AM",
+  "history": [
+    {
+      "type": "due_clear",
+      "amount": 200,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "12/12/2025 10:22:15 AM"
+    },
+    {
+      "type": "deposit",
+      "amount": 200,
+      "reason": "bks",
+      "timestamp": "12/12/2025 10:22:15 AM"
+    }
+  ]
+}

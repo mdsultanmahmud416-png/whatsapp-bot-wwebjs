@@ -1,0 +1,21 @@
+{
+  "number": "8801717840475",
+  "role": "Customer",
+  "balance": 0,
+  "due": 100,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "30/11/2025 05:53:19 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "51620655",
+      "Office_Number": "8801340276377",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "30/11/2025 05:53:19 PM"
+    }
+  ]
+}

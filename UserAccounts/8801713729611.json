@@ -1,0 +1,22 @@
+{
+  "number": "8801713729611",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "01/12/2025 10:24:08 PM",
+  "history": [
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "01/12/2025 10:24:08 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "বিকাশ",
+      "timestamp": "01/12/2025 10:24:08 PM"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "number": "8801647635662",
+  "role": "Customer",
+  "balance": 0,
+  "due": 140,
+  "createdAt": "23/11/2025 11:05:07 PM",
+  "updatedAt": "23/11/2025 11:05:07 PM",
+  "history": [
+    {
+      "type": "manualCharge",
+      "amount": 140,
+      "reason": "আগের বকেয়া",
+      "role": "Customer",
+      "timestamp": "23/11/2025 11:05:07 PM"
+    }
+  ]
+}

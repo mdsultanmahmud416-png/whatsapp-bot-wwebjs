@@ -1,0 +1,29 @@
+{
+  "number": "8801740191553",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "11/5/2025, 11:49:13 AM",
+  "updatedAt": "05/11/2025 01:05:11 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 120,
+      "reason": "Auto Charge orderKey: 119742872",
+      "role": "Customer",
+      "timestamp": "05/11/2025 11:51:23 AM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "05/11/2025 01:05:11 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "bks",
+      "timestamp": "05/11/2025 01:05:11 PM"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "number": "8801735974312",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "04/11/2025 09:47:05 PM",
+  "history": [
+    {
+      "type": "deduct",
+      "amount": 120,
+      "reason": "আগের বকেয়া",
+      "role": "Customer",
+      "timestamp": "2025-11-01T17:01:34.714Z"
+    },
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "2025-11-02T00:44:14.293Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "বকেয়া পরিশোধ",
+      "timestamp": "2025-11-02T00:44:14.293Z"
+    }
+  ]
+}

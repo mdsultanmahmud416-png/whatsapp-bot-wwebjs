@@ -1,0 +1,54 @@
+{
+  "number": "8801874109317",
+  "role": "Customer",
+  "balance": 530,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "04/11/2025 09:47:05 PM",
+  "history": [
+    {
+      "type": "deduct",
+      "amount": 530,
+      "reason": "অ্যাডভান্স থাকলো",
+      "role": "Customer",
+      "timestamp": "2025-11-01T16:53:37.842Z"
+    },
+    {
+      "type": "due_clear",
+      "amount": 530,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "2025-11-01T16:54:27.043Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 530,
+      "reason": "অ্যাডভান্স থাকলো",
+      "timestamp": "2025-11-01T16:54:27.043Z"
+    },
+    {
+      "type": "deduct",
+      "amount": 530,
+      "reason": "অ্যাডভান্স থাকলো",
+      "role": "Customer",
+      "timestamp": "2025-11-01T16:54:37.308Z"
+    },
+    {
+      "type": "due_clear",
+      "amount": 530,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "2025-11-01T16:55:04.984Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 530,
+      "reason": "অ্যাডভান্স থাকলো",
+      "timestamp": "2025-11-01T16:55:04.984Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 530,
+      "reason": "অ্যাডভান্স থাকলো",
+      "timestamp": "2025-11-01T16:55:08.588Z"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "number": "8801315380156",
+  "role": "Pre_Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "04/11/2025 09:47:05 PM",
+  "history": [
+    {
+      "type": "deduct",
+      "amount": 150,
+      "reason": "আগের বকেয়া",
+      "role": "Pre_Customer",
+      "timestamp": "2025-11-01T16:41:55.393Z"
+    },
+    {
+      "type": "due_clear",
+      "amount": 150,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "2025-11-01T17:17:43.375Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 150,
+      "reason": "বিকাশ জমা",
+      "timestamp": "2025-11-01T17:17:43.375Z"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "number": "8801911530024",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "10/12/2025 04:18:15 PM",
+  "history": [
+    {
+      "type": "due_clear",
+      "amount": 100,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "07/12/2025 03:08:51 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 200,
+      "reason": "bks",
+      "timestamp": "07/12/2025 03:08:51 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "2698882467164",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 03:12:20 PM"
+    },
+    {
+      "type": "manualCharge",
+      "amount": 240,
+      "reason": "দুটা আইডি কার্ড",
+      "role": "Customer",
+      "timestamp": "10/12/2025 04:10:16 PM"
+    },
+    {
+      "type": "due_clear",
+      "amount": 240,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "10/12/2025 04:18:15 PM"
+    },
+    {
+      "type": "deposit",
+      "amount": 240,
+      "reason": "দুটা আইডি কার্ড",
+      "timestamp": "10/12/2025 04:18:15 PM"
+    }
+  ]
+}

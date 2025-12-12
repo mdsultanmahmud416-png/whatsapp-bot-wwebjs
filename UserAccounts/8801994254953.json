@@ -1,0 +1,27 @@
+{
+  "number": "8801994254953",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "12/7/2025, 3:09:36 PM",
+  "updatedAt": "07/12/2025 03:24:13 PM",
+  "history": [
+    {
+      "type": "deposit",
+      "amount": 100,
+      "reason": "ngd",
+      "timestamp": "07/12/2025 03:10:57 PM"
+    },
+    {
+      "type": "charge",
+      "amount": 100,
+      "role": "Customer",
+      "orderTag": "NidPdf",
+      "reason": "Auto Charge",
+      "OrderKey": "6418776990",
+      "Office_Number": "8801681240760",
+      "Office_Type": "SignCopy_Office",
+      "timestamp": "07/12/2025 03:24:13 PM"
+    }
+  ]
+}

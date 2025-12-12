@@ -1,0 +1,29 @@
+{
+  "number": "8801738037552",
+  "role": "Customer",
+  "balance": 0,
+  "due": 0,
+  "createdAt": "01/11/2025 04:42:49 PM",
+  "updatedAt": "04/11/2025 09:47:05 PM",
+  "history": [
+    {
+      "type": "charge",
+      "amount": 120,
+      "reason": "Auto Charge: SignCopy_SenderOfficeNumber",
+      "role": "Customer",
+      "timestamp": "2025-11-02T11:24:18.493Z"
+    },
+    {
+      "type": "due_clear",
+      "amount": 120,
+      "reason": "Auto clear due on deposit",
+      "timestamp": "2025-11-02T15:47:01.605Z"
+    },
+    {
+      "type": "deposit",
+      "amount": 120,
+      "reason": "due pay",
+      "timestamp": "2025-11-02T15:47:01.605Z"
+    }
+  ]
+}
