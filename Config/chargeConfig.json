@@ -1,0 +1,23 @@
+{
+  "default": {
+    "autoCharge": 120
+  },
+  "SignCopy_Office": {
+    "autoCharge": 35
+  },
+  "SignCopy": {
+    "autoCharge": 40
+  },
+  "NidPdf": {
+    "autoCharge": 120
+  },
+  "SarverCopy": {
+    "autoCharge": 80
+  },
+  "UnSarverCopy": {
+    "autoCharge": 50
+  },
+  "personal": {
+    "autoCharge": 250
+  }
+}
