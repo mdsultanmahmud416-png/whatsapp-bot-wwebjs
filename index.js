@@ -18,6 +18,7 @@ const moment = require('moment');
 const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
+const puppeteer = require("puppeteer");
 
 puppeteer.launch = async function (options) {
     return puppeteer.__proto__.launch.call(this, {
@@ -3497,6 +3498,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
