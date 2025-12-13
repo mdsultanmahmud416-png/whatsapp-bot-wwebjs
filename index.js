@@ -1022,17 +1022,12 @@ const client = new Client({
 }
 });
 
-// ================== Pairing Code Event (Server use recommended) ==================
-client.on('pairing_code', (code) => {
-    console.log('🔐 PAIRING CODE:', code);
-    console.log('👉 WhatsApp → Linked Devices → Pair with Code → এখানে এই কোড দিন');
-});
 
 // ================== QR Event (Local use only) ==================
-// client.on('qr', qr => {
-//   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-//    qrcode.generate(qr, { small: true });
-// });
+ client.on('qr', qr => {
+   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
+    qrcode.generate(qr, { small: true });
+ });
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3507,6 +3502,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
