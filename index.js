@@ -1004,10 +1004,10 @@ client.on('pairing_code', (code) => {
 });
 
 // ================== QR Event (Local use only) ==================
-// client.on('qr', qr => {
- //   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-//    qrcode.generate(qr, { small: true });
-// });
+ client.on('qr', qr => {
+   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
+    qrcode.generate(qr, { small: true });
+ });
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3482,4 +3482,5 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
