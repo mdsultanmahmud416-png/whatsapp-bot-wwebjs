@@ -977,26 +977,37 @@ const client = new Client({
         dataPath: "./auth"   // session saved inside project folder
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
-    puppeteer: {
+        puppeteer: {
         headless: true,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
         args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--disable-gpu'
-        ]
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-features=IsolateOrigins,site-per-process',
+        '--disable-web-security',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--remote-debugging-port=9222',
+        '--window-size=1920,1080'
+    ]
     }
-
 });
 
-client.on('qr', qr => {
-    console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-    qrcode.generate(qr, { small: true });
+// ================== Pairing Code Event (Server use recommended) ==================
+client.on('pairing_code', (code) => {
+    console.log('🔐 PAIRING CODE:', code);
+    console.log('👉 WhatsApp → Linked Devices → Pair with Code → এখানে এই কোড দিন');
 });
+
+// ================== QR Event (Local use only) ==================
+// client.on('qr', qr => {
+ //   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
+//    qrcode.generate(qr, { small: true });
+// });
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3471,3 +3482,4 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
