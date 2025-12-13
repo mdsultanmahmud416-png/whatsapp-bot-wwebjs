@@ -10,7 +10,8 @@
  * প্রয়োজনীয়: npm install করে নেওয়া লাগবে (package.json দেখুন)
  */
 
-const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
+// const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
+const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs-extra');
 const path = require('path');
@@ -1008,37 +1009,45 @@ client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
 });
 */
-// crash guard
-process.on('unhandledRejection', r => {
-  console.error('❌ Unhandled:', r);
-});
+
+
 
 const client = new Client({
-  authStrategy: new LocalAuth({
-    clientId: "Whatsapp-bot",
-    dataPath: path.join(__dirname, 'auth') // ⭐ ABSOLUTE path
-  }),
-  puppeteer: {
-    headless: true,
-    args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu'
-    ]
-  }
+    authStrategy: new LocalAuth({
+        clientId: "Whatsapp-bot",
+        dataPath: "./auth"
+    }),
+    puppeteer: {
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage'
+        ]
+    },
+    authTimeoutMs: 120000
 });
 
-// ❌ QR EVENT SERVER-এ রাখবেন না
-// client.on('qr', ...);
-
 client.on('ready', () => {
-  console.log('✅ WhatsApp client ready (SERVER)');
+    console.log('✅ WhatsApp client ready (PRODUCTION)');
 });
 
 client.on('auth_failure', msg => {
-  console.error('❌ AUTH FAILURE:', msg);
+    console.error('❌ Auth failure:', msg);
 });
+
+client.on('disconnected', reason => {
+    console.error('⚠️ Disconnected:', reason);
+});
+
+(async () => {
+    try {
+        await client.initialize();
+    } catch (err) {
+        console.error('❌ Init failed:', err);
+    }
+})();
+
 
 // ================== কমান্ড সিস্টেম ==================
 async function handleCommands(message) {
