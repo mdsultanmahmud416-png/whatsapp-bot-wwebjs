@@ -978,27 +978,30 @@ const client = new Client({
         dataPath: "./auth"   // session saved inside project folder
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
-        puppeteer: {
-    executablePath: '/usr/bin/chromium',
-    headless: true,
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
-        '--disable-extensions',
-        '--disable-infobars',
-        '--window-size=1920,1080'
-    ]
-}
+    puppeteer: {
+        headless: true,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu',
+            '--disable-features=IsolateOrigins,site-per-process',
+            '--disable-web-security',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process',
+            '--remote-debugging-port=9222',
+            '--window-size=1920,1080'
+        ]
+    }
 });
 
 client.on('pairing_code', code => {
   console.log('🔐 PAIRING CODE:', code);
   console.log('WhatsApp → Linked Devices → Pair with code');
 });
-
-
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3472,12 +3475,7 @@ client.on('message_reaction', async (reaction) => {
 });
 
 // start client
-client.initialize()
-  .then(() => console.log('Init started'))
-  .catch(err => {
-    console.error('❌ WhatsApp init failed');
-    console.error(err);
-  });
+client.initialize();
 
 
 
