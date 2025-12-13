@@ -1009,43 +1009,35 @@ client.on('ready', () => {
 });
 */
 // crash guard
-process.on('unhandledRejection', err => {
-  console.error('Unhandled rejection:', err);
+process.on('unhandledRejection', r => {
+  console.error('❌ Unhandled:', r);
 });
 
-// ================== WhatsApp Client Initialization ==================
 const client = new Client({
-    authStrategy: new LocalAuth({
-        clientId: "Whatsapp-bot",
-        dataPath: "./auth"   // session saved inside project folder
-    }),
-    puppeteer: {
-  headless: true,
-  executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-  args: [
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    '--disable-dev-shm-usage',
-    '--disable-accelerated-2d-canvas',
-    '--disable-gpu',
-    '--disable-features=IsolateOrigins,site-per-process',
-    '--disable-web-security',
-    '--no-first-run',
-    '--no-zygote',
-    '--single-process',
-    '--remote-debugging-port=9222',
-    '--window-size=1920,1080'
-  ]
-}
+  authStrategy: new LocalAuth({
+    clientId: "Whatsapp-bot",
+    dataPath: path.join(__dirname, 'auth') // ⭐ ABSOLUTE path
+  }),
+  puppeteer: {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu'
+    ]
+  }
 });
 
-client.on('qr', qr => {
-    console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-    qrcode.generate(qr, { small: true });
-});
+// ❌ QR EVENT SERVER-এ রাখবেন না
+// client.on('qr', ...);
 
 client.on('ready', () => {
-    console.log('WhatsApp client ready. Session saved via LocalAuth.');
+  console.log('✅ WhatsApp client ready (SERVER)');
+});
+
+client.on('auth_failure', msg => {
+  console.error('❌ AUTH FAILURE:', msg);
 });
 
 // ================== কমান্ড সিস্টেম ==================
@@ -3517,6 +3509,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
