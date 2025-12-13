@@ -972,6 +972,7 @@ function getDuplicateKeys(orderKey, officeNumber, logsInput = []) {
 process.env.CHROME_PATH = process.env.PUPPETEER_EXECUTABLE_PATH;
 
 // ================== WhatsApp Client Initialization ==================
+/*
 const client = new Client({
     authStrategy: new LocalAuth({        
             clientId: "Whatsapp-bot",                 // ⭐ SAME as local
@@ -987,6 +988,36 @@ const client = new Client({
       '--disable-gpu'
     ]
   }
+});
+
+client.on('qr', qr => {
+    console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
+    qrcode.generate(qr, { small: true });
+});
+
+client.on('ready', () => {
+    console.log('WhatsApp client ready. Session saved via LocalAuth.');
+});
+*/
+// ================== WhatsApp Client Initialization ==================
+const client = new Client({
+    authStrategy: new LocalAuth({
+        clientId: "Whatsapp-bot",
+        dataPath: "./auth"   // session saved inside project folder
+    }),
+    puppeteer: {
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process',
+            '--disable-gpu'
+        ]
+    }
 });
 
 client.on('qr', qr => {
@@ -3467,6 +3498,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
