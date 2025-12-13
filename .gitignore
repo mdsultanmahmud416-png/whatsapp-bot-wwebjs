@@ -9,3 +9,5 @@ node_modules/
 index.local.js
 .env
 npm-debug.log*
+auth/**/DevToolsActivePort
+
