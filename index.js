@@ -3472,7 +3472,11 @@ client.on('message_reaction', async (reaction) => {
 });
 
 // start client
-client.initialize();
+client.initialize().catch(err => {
+  console.error('❌ WhatsApp init failed:', err.message);
+});
+
+
 
 
 
