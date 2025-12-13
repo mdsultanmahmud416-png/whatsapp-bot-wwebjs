@@ -1,0 +1,11 @@
+# Chrome cache (lock issue fix)
+auth/**/Cache/
+auth/**/Code Cache/
+auth/**/GPUCache/
+auth/**/Crashpad/
+
+node_modules/
+.wwebjs_cache/
+index.local.js
+.env
+npm-debug.log*
