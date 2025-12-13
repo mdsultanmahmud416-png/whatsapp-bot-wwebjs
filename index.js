@@ -10,8 +10,8 @@
  * প্রয়োজনীয়: npm install করে নেওয়া লাগবে (package.json দেখুন)
  */
 
-// const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
+// const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs-extra');
 const path = require('path');
@@ -3518,6 +3518,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
