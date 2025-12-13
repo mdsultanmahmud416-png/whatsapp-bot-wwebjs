@@ -1,4 +1,5 @@
 {
+    "type": "module",
     "name": "whatsapp-bot-signcopy-full",
     "version": "1.0.0",
     "description": "WhatsApp bot with duplicate sync, PDF field extraction and forwarding",
@@ -16,3 +17,4 @@
         "whatsapp-web.js": "github:pedroslopez/whatsapp-web.js"
     }
 }
+
