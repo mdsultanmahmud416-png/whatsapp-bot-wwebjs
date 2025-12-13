@@ -10,37 +10,20 @@
  * প্রয়োজনীয়: npm install করে নেওয়া লাগবে (package.json দেখুন)
  */
 
-const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
-const fs = require('fs-extra');
+// const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
+// const qrcode = require('qrcode-terminal');
+// const fs = require('fs-extra');
 const path = require('path');
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
+// ================== Imports (ESM ONLY) ==================
+import { Client, LocalAuth, MessageMedia } from 'whatsapp-web.js';
+import qrcode from 'qrcode-terminal';
+import fs from 'fs-extra';
+import puppeteer from 'puppeteer';
 
-import puppeteer from "puppeteer";
-
-puppeteer.launch = async function (options) {
-    return puppeteer.__proto__.launch.call(this, {
-        ...options,
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--disable-gpu',
-            '--disable-features=IsolateOrigins,site-per-process',
-            '--disable-web-security',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--remote-debugging-port=9222',
-            '--window-size=1920,1080',
-        ]
-    });
-};
 
 
 const delayProfile = {
@@ -1003,31 +986,31 @@ const client = new Client({
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
         puppeteer: {
-    headless: true,
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-    args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
-        '--disable-gpu',
-        '--disable-features=IsolateOrigins,site-per-process',
-        '--disable-web-security',
-        '--no-first-run',
-        '--no-zygote',
-        '--single-process',
-        '--remote-debugging-port=9222',
-        '--window-size=1920,1080'
-    ]
+        headless: true,
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-gpu',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process'
+        ]
 }
 });
 
+// ================== Pairing Code ==================
+client.on('pairing_code', (code) => {
+    console.log('🔐 PAIRING CODE:', code);
+    console.log('👉 WhatsApp → Linked Devices → Pair with Code');
+});
 
 // ================== QR Event (Local use only) ==================
- client.on('qr', qr => {
-   console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-    qrcode.generate(qr, { small: true });
- });
+// client.on('qr', qr => {
+ //  console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
+ //   qrcode.generate(qr, { small: true });
+// });
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3502,6 +3485,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
