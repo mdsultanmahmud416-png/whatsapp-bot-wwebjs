@@ -968,7 +968,8 @@ function getDuplicateKeys(orderKey, officeNumber, logsInput = []) {
     return duplicates; // মিলেছে এমন key এর array
 }
 
-
+// Force puppeteer to use system chromium (Railway Fix)
+process.env.CHROME_PATH = process.env.PUPPETEER_EXECUTABLE_PATH;
 
 // ================== WhatsApp Client Initialization ==================
 const client = new Client({
@@ -3482,6 +3483,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
