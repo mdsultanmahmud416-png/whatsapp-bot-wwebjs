@@ -979,23 +979,23 @@ const client = new Client({
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
     puppeteer: {
-        headless: true,
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--disable-gpu',
-            '--disable-features=IsolateOrigins,site-per-process',
-            '--disable-web-security',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--remote-debugging-port=9222',
-            '--window-size=1920,1080'
-        ]
-    }
+    headless: true,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-features=IsolateOrigins,site-per-process',
+        '--disable-web-security',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--remote-debugging-port=9222',
+        '--window-size=1920,1080'
+    ]
+}
 });
 
 client.on('qr', qr => {
@@ -3476,6 +3476,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
