@@ -14,6 +14,10 @@ const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs-extra');
 const path = require('path');
+const path = require('path');
+
+dataPath: path.join(__dirname, 'auth')
+
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
@@ -973,9 +977,9 @@ process.env.CHROME_PATH = process.env.PUPPETEER_EXECUTABLE_PATH;
 
 // ================== WhatsApp Client Initialization ==================
 const client = new Client({
-    authStrategy: new LocalAuth({
-        clientId: "Whatsapp-bot",
-        dataPath: "./auth"   // session saved inside project folder
+    authStrategy: new LocalAuth({        
+            clientId: "Whatsapp-bot",                 // ⭐ SAME as local
+    dataPath: path.join(__dirname, 'auth')    // ⭐ ABSOLUTE
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
     puppeteer: {
@@ -3476,6 +3480,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
