@@ -11,7 +11,6 @@ RUN apt-get update && apt-get install -y \
     chromium-driver \
     libxss1 \
     libappindicator1 \
-    libindicator7 \
     libasound2 \
     libnss3 \
     libatk1.0-0 \
