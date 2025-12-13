@@ -980,14 +980,23 @@ const client = new Client({
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
  puppeteer: {
-    headless: true, // Railway server
+    headless: true,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
     args: [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu'
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-features=IsolateOrigins,site-per-process',
+        '--disable-web-security',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--remote-debugging-port=9222',
+        '--window-size=1920,1080'
     ]
-  }
+}
 });
 
 client.on('qr', qr => {
@@ -999,6 +1008,11 @@ client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
 });
 */
+// crash guard
+process.on('unhandledRejection', err => {
+  console.error('Unhandled rejection:', err);
+});
+
 // ================== WhatsApp Client Initialization ==================
 const client = new Client({
     authStrategy: new LocalAuth({
@@ -1006,18 +1020,23 @@ const client = new Client({
         dataPath: "./auth"   // session saved inside project folder
     }),
     puppeteer: {
-        headless: true,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--disable-gpu'
-        ]
-    }
+    headless: true,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-features=IsolateOrigins,site-per-process',
+        '--disable-web-security',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--remote-debugging-port=9222',
+        '--window-size=1920,1080'
+    ]
+}
 });
 
 client.on('qr', qr => {
@@ -3498,6 +3517,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
