@@ -14,8 +14,6 @@ const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const fs = require('fs-extra');
 const path = require('path');
-const path = require('path');
-
 dataPath: path.join(__dirname, 'auth')
 
 const moment = require('moment');
@@ -3480,6 +3478,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
