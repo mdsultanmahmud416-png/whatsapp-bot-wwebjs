@@ -1003,9 +1003,9 @@ const client = new Client({
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
         puppeteer: {
-        headless: true,
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-        args: [
+    headless: true,
+    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+    args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
         '--disable-dev-shm-usage',
@@ -1019,7 +1019,7 @@ const client = new Client({
         '--remote-debugging-port=9222',
         '--window-size=1920,1080'
     ]
-    }
+}
 });
 
 // ================== Pairing Code Event (Server use recommended) ==================
@@ -3507,6 +3507,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
