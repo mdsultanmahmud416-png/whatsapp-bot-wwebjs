@@ -993,12 +993,12 @@ const client = new Client({
 }
 });
 
-
-// ================== QR Event (Local use only) ==================
-client.on('qr', qr => {
-    console.log('QR কোড দেখাও — প্রথমবার স্ক্যান করুন (terminal এ)।');
-    qrcode.generate(qr, { small: true });
+client.on('pairing_code', code => {
+  console.log('🔐 PAIRING CODE:', code);
+  console.log('WhatsApp → Linked Devices → Pair with code');
 });
+
+
 
 client.on('ready', () => {
     console.log('WhatsApp client ready. Session saved via LocalAuth.');
@@ -3478,6 +3478,7 @@ client.initialize()
     console.error('❌ WhatsApp init failed');
     console.error(err);
   });
+
 
 
 
