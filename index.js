@@ -20,27 +20,6 @@ const crypto = require('crypto');
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
 const puppeteer = require("puppeteer");
 
-puppeteer.launch = async function (options) {
-    return puppeteer.__proto__.launch.call(this, {
-        ...options,
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
-        args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage',
-            '--disable-accelerated-2d-canvas',
-            '--disable-gpu',
-            '--disable-features=IsolateOrigins,site-per-process',
-            '--disable-web-security',
-            '--no-first-run',
-            '--no-zygote',
-            '--single-process',
-            '--remote-debugging-port=9222',
-            '--window-size=1920,1080',
-        ]
-    });
-};
-
 const delayProfile = {
     MsgForwardDelay: { min: 100, max: 500 }, // MsgForwardDelay এর জন্য র্যান্ডম ডিলে 500ms থেকে 1000ms
     PdfForwardDelay: { min: 100, max: 500 }, // PdfForwardDelay এর জন্য র্যান্ডম ডিলে 300ms থেকে 600ms
@@ -1000,24 +979,15 @@ const client = new Client({
         dataPath: "./auth"   // session saved inside project folder
     }),
     // আপনার পরিবেশ অনুযায়ী সেট করুন
-    puppeteer: {
-    headless: true,
-    executablePath: process.env.PUPPETEER_EXECUTABLE_PATH,
+ puppeteer: {
+    headless: true, // Railway server
     args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
-        '--disable-gpu',
-        '--disable-features=IsolateOrigins,site-per-process',
-        '--disable-web-security',
-        '--no-first-run',
-        '--no-zygote',
-        '--single-process',
-        '--remote-debugging-port=9222',
-        '--window-size=1920,1080'
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu'
     ]
-}
+  }
 });
 
 client.on('qr', qr => {
@@ -3498,6 +3468,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
