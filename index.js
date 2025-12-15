@@ -3315,7 +3315,7 @@ async function handleOfficePdfDelivery(message) {
             return;
         });  // addToQueue end
         // temp file cleanup
-        //  try { fs.removeSync(tempFile); } catch (e) { }
+          try { fs.removeSync(tempFile); } catch (e) { }
         return;
 
 
@@ -3530,6 +3530,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
