@@ -19,7 +19,7 @@ const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
 // const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager.adapter");
-const { saveMainConfigToMongo } = require("./mongoConfig");
+const { loadMainConfigFromMongo, saveMainConfigToMongo } = require("./mongoConfig");
 
 (async () => {
     if (accountManager.init) {
@@ -142,6 +142,25 @@ function watchConfig() {
 */
 
 // ===============================
+// 🔹 Mongo-based Config Loader
+// ===============================
+async function loadConfig() {
+  const configData = await loadMainConfigFromMongo();
+
+  AdminNumber = configData.AdminNumber || [];
+  SignCopy_SenderOfficeNumber = configData.SignCopy_SenderOfficeNumber || [];
+  Nid_Make_OfficeNumber = configData.Nid_Make_OfficeNumber || [];
+  Biometric_SenderOfficeNumber = configData.Biometric_SenderOfficeNumber || [];
+  Birth_SenderOfficeNumber = configData.Birth_SenderOfficeNumber || [];
+  e_Tin_SenderOfficeNumber = configData.e_Tin_SenderOfficeNumber || [];
+
+  Pre_CustomerNumber = configData.Pre_CustomerNumber || [];
+  Order_Rcvd_CustomerNumber = configData.Order_Rcvd_CustomerNumber || [];
+  CustomerNumber = configData.CustomerNumber || [];
+
+  console.log("✅ Configuration loaded from MongoDB");
+}
+// ===============================
 // 🔹 MongoDB-based saveConfig
 // ===============================
 async function saveConfig() {
@@ -172,11 +191,21 @@ async function saveConfig() {
 // 🔹 প্রথমবার লোড ও মনিটর শুরু
 // loadConfig();
 // watchConfig();
+
+// imports
+const { loadMainConfigFromMongo } = require("./mongoConfig");
+
+// ===============================
+// 🔹 Load config on startup
+// ===============================
 (async () => {
-  await loadConfig();
+  try {
+    await loadConfig();
+  } catch (err) {
+    console.error("❌ Initial config load failed:", err.message);
+    process.exit(1); // config ছাড়া bot চলবে না
+  }
 })();
-
-
 
 // রিপোর্ট/লগ ফাইল পাথ
 function getReportPath(type) {
@@ -3565,6 +3594,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
