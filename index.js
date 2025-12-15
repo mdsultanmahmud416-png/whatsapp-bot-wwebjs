@@ -12,11 +12,7 @@
 
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-// const fs = require('fs-extra');
-const fs = Object.assign(
-    require("fs-extra"),
-    require("./mongoFs.adapter")
-);
+const fs = require('fs-extra');
 const path = require('path');
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
@@ -3530,6 +3526,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
