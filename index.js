@@ -19,6 +19,7 @@ const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
 // const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager.adapter");
+const { saveMainConfigToMongo } = require("./mongoConfig");
 
 (async () => {
     if (accountManager.init) {
@@ -75,6 +76,7 @@ let e_Tin_SenderOfficeNumber = '';
 let Pre_CustomerNumber = [];
 let Order_Rcvd_CustomerNumber = [];
 let CustomerNumber = [];
+
 /*
 // কনফিগ লোড ফাংশন
 function loadConfig() {
@@ -121,6 +123,7 @@ function saveConfig() {
     loadConfig();
 }
 */
+
 /*
 // 🔹 ফাইল পরিবর্তন মনিটর করা
 function watchConfig() {
@@ -137,9 +140,43 @@ function watchConfig() {
     });
 }
 */
+
+// ===============================
+// 🔹 MongoDB-based saveConfig
+// ===============================
+async function saveConfig() {
+  const config = {
+    AdminNumber,
+    SignCopy_SenderOfficeNumber,
+    Nid_Make_OfficeNumber,
+    Biometric_SenderOfficeNumber,
+    Birth_SenderOfficeNumber,
+    e_Tin_SenderOfficeNumber,
+    Pre_CustomerNumber,
+    Order_Rcvd_CustomerNumber,
+    CustomerNumber
+  };
+
+  try {
+    await saveMainConfigToMongo(config);
+    console.log("💾 Configuration saved to MongoDB");
+
+    // optional: reload into memory
+    await loadConfig();
+
+  } catch (err) {
+    console.error("❌ Failed to save config to MongoDB:", err.message);
+  }
+}
+
 // 🔹 প্রথমবার লোড ও মনিটর শুরু
-loadConfig();
+// loadConfig();
 // watchConfig();
+(async () => {
+  await loadConfig();
+})();
+
+
 
 // রিপোর্ট/লগ ফাইল পাথ
 function getReportPath(type) {
@@ -3528,6 +3565,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
