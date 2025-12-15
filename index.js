@@ -1026,7 +1026,7 @@ client.on('ready', () => {
 
 const client = new Client({
     authStrategy: new LocalAuth({
-        clientId: "Whatsapp-bot",
+        clientId: "Whatsapp-bot-live",
         dataPath: "./auth"
     }),
     puppeteer: {
@@ -3530,6 +3530,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
