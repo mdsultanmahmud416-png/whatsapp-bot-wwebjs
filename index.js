@@ -1099,10 +1099,20 @@ const client = new Client({
     }),
     puppeteer: {
         headless: true,
+        ProtocolTimeout: 120000,
         args: [
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-dev-shm-usage'
+           '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu',
+        '--disable-features=IsolateOrigins,site-per-process',
+        '--disable-web-security',
+        '--no-first-run',
+        '--no-zygote',
+        '--single-process',
+        '--remote-debugging-port=9222',
+        '--window-size=1920,1080'
         ]
     },
     authTimeoutMs: 120000
@@ -3598,6 +3608,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
