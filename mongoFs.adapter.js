@@ -9,7 +9,6 @@
 const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
-const deasync = require("deasync");
 
 // ===============================
 // Mongo Connection (safe auto-connect)
@@ -33,6 +32,12 @@ const VirtualFile =
     mongoose.models.VirtualFile || mongoose.model("VirtualFile", FileSchema);
 
 // ===============================
+// In-memory cache
+// ===============================
+const memoryStore = new Map();
+let initialized = false;
+
+// ===============================
 // Helper: কোন path Mongo তে যাবে
 // ===============================
 function isMongoPath(filePath) {
@@ -45,29 +50,33 @@ function isMongoPath(filePath) {
 }
 
 // ===============================
+// Init (call once at startup)
+// ===============================
+async function initMongoFs() {
+    if (initialized) return;
+
+    const docs = await VirtualFile.find({}).lean();
+    for (const d of docs) {
+        memoryStore.set(d.path, d.content);
+    }
+
+    initialized = true;
+    console.log("🟢 mongoFs initialized (memory cache ready)");
+}
+
+// ===============================
 // Adapter API (fs-compatible)
 // ===============================
 module.exports = {
+    initMongoFs,
+
     // -------- readFileSync --------
     readFileSync(filePath, encoding = "utf8") {
         if (!isMongoPath(filePath)) {
             return fs.readFileSync(filePath, encoding);
         }
 
-        let done = false;
-        let result = null;
-
-        VirtualFile.findOne({ path: filePath })
-            .lean()
-            .exec((err, doc) => {
-                result = doc;
-                done = true;
-            });
-
-        deasync.loopWhile(() => !done);
-
-        // config.json হলে object, report হলে array → দুটোই string আকারে ফেরত দিচ্ছি
-        return result && result.content ? result.content : "[]";
+        return memoryStore.get(filePath) ?? "[]";
     },
 
     // -------- writeFileSync --------
@@ -76,16 +85,21 @@ module.exports = {
             return fs.writeFileSync(filePath, content);
         }
 
+        // memory update
+        memoryStore.set(filePath, content);
+
+        // async mongo save (non-blocking)
         VirtualFile.updateOne(
             { path: filePath },
             { content, updatedAt: new Date() },
             { upsert: true }
-        ).exec();
+        ).catch(err => {
+            console.error("❌ Mongo write failed:", err.message);
+        });
     },
 
     // -------- ensureDirSync --------
     ensureDirSync() {
-        // MongoDB এ directory লাগে না → noop
-        return;
+        // noop — MongoDB এ directory লাগে না
     }
 };
