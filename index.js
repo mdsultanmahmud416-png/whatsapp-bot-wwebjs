@@ -20,13 +20,7 @@ const crypto = require('crypto');
 // const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
 const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager.adapter");
 const { loadMainConfigFromMongo, saveMainConfigToMongo } = require("./mongoConfig");
-
-(async () => {
-    if (accountManager.init) {
-        await accountManager.init();
-    }
-})();
-
+const { connectMongo } = require("./mongoConnection");
 
 const delayProfile = {
     MsgForwardDelay: { min: 100, max: 500 }, // MsgForwardDelay এর জন্য র্যান্ডম ডিলে 500ms থেকে 1000ms
@@ -197,12 +191,25 @@ async function saveConfig() {
 // ===============================
 (async () => {
   try {
+    // 1️⃣ MongoDB connect আগে
+    await connectMongo();
+
+    // 2️⃣ তারপর config load
     await loadConfig();
+
+    // 3️⃣ তারপর accountManager init
+    if (accountManager.init) {
+      await accountManager.init();
+    }
+
+    console.log("🚀 Bot startup completed");
+
   } catch (err) {
-    console.error("❌ Initial config load failed:", err.message);
-    process.exit(1); // config ছাড়া bot চলবে না
+    console.error("❌ Startup failed:", err.message);
+    process.exit(1);
   }
 })();
+
 
 // রিপোর্ট/লগ ফাইল পাথ
 function getReportPath(type) {
@@ -3591,6 +3598,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
