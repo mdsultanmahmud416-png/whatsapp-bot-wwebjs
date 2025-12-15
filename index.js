@@ -11,9 +11,12 @@
  */
 
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
-// const { Client, LocalAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
-const fs = require('fs-extra');
+// const fs = require('fs-extra');
+const fs = Object.assign(
+    require("fs-extra"),
+    require("./mongoFs.adapter")
+);
 const path = require('path');
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
@@ -45,7 +48,8 @@ const reactProfile = {
 
 // ================== পাথ ও কনফিগ ==================
 const ROOT = __dirname;
-const CONFIG_PATH = path.join(ROOT, 'config.json');
+const ConfigDir = path.join(ROOT, "Config");
+const CONFIG_PATH = path.join(ConfigDir, 'mainConfig.json');
 const REPORTS_DIR = path.join(ROOT, 'Reports');
 // তারিখ অনুযায়ী ফোল্ডার নাম তৈরি (YYYY-MM-DD)
 const currentDateFolder = moment().format('YYYY-MM-DD');
@@ -3518,6 +3522,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
