@@ -21,7 +21,15 @@ const path = require('path');
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
-const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
+// const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
+const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager.adapter");
+
+(async () => {
+    if (accountManager.init) {
+        await accountManager.init();
+    }
+})();
+
 
 const delayProfile = {
     MsgForwardDelay: { min: 100, max: 500 }, // MsgForwardDelay এর জন্য র্যান্ডম ডিলে 500ms থেকে 1000ms
@@ -3522,6 +3530,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
