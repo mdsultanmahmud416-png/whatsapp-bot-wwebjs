@@ -52,8 +52,8 @@ const reactProfile = {
 
 // ================== পাথ ও কনফিগ ==================
 const ROOT = __dirname;
-const ConfigDir = path.join(ROOT, "Config");
-const CONFIG_PATH = path.join(ConfigDir, 'mainConfig.json');
+// const ConfigDir = path.join(ROOT, "Config");
+// const CONFIG_PATH = path.join(ConfigDir, 'mainConfig.json');
 const REPORTS_DIR = path.join(ROOT, 'Reports');
 // তারিখ অনুযায়ী ফোল্ডার নাম তৈরি (YYYY-MM-DD)
 const currentDateFolder = moment().format('YYYY-MM-DD');
@@ -75,7 +75,7 @@ let e_Tin_SenderOfficeNumber = '';
 let Pre_CustomerNumber = [];
 let Order_Rcvd_CustomerNumber = [];
 let CustomerNumber = [];
-
+/*
 // কনফিগ লোড ফাংশন
 function loadConfig() {
     if (!fs.existsSync(CONFIG_PATH)) {
@@ -99,7 +99,8 @@ function loadConfig() {
 
     return configData;
 }
-
+*/
+/*
 // কনফিগ সেভ ফাংশন
 function saveConfig() {
     const config = {
@@ -119,7 +120,8 @@ function saveConfig() {
     // ✅ সাথে সাথে মেমোরিতে আপডেট
     loadConfig();
 }
-
+*/
+/*
 // 🔹 ফাইল পরিবর্তন মনিটর করা
 function watchConfig() {
     fs.watchFile(CONFIG_PATH, { interval: 2000 }, (curr, prev) => {
@@ -134,10 +136,10 @@ function watchConfig() {
         }
     });
 }
-
+*/
 // 🔹 প্রথমবার লোড ও মনিটর শুরু
 loadConfig();
-watchConfig();
+// watchConfig();
 
 // রিপোর্ট/লগ ফাইল পাথ
 function getReportPath(type) {
@@ -3526,6 +3528,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
