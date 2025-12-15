@@ -192,9 +192,6 @@ async function saveConfig() {
 // loadConfig();
 // watchConfig();
 
-// imports
-const { loadMainConfigFromMongo } = require("./mongoConfig");
-
 // ===============================
 // 🔹 Load config on startup
 // ===============================
@@ -3594,6 +3591,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
