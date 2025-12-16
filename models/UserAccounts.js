@@ -12,5 +12,6 @@ const UserAccountsSchema = new mongoose.Schema({
 });
 
 module.exports =
-  mongoose.models.Account ||
+  mongoose.models.UserAccounts ||
   mongoose.model("UserAccounts", UserAccountsSchema);
+
