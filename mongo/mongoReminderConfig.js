@@ -1,4 +1,4 @@
-const Config = require("./models/Config");
+const Config = require("../models/Config");
 
 async function loadReminderConfig() {
   const doc = await Config.findOne({ key: "reminderConfig" }).lean();

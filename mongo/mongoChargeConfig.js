@@ -1,4 +1,4 @@
-const Config = require("./models/Config");
+const Config = require("../models/Config");
 
 async function loadChargeConfig() {
   const doc = await Config.findOne({ key: "chargeConfig" }).lean();

@@ -1,5 +1,5 @@
 const moment = require("moment-timezone");
-const Account = require("./models/UserAccounts");
+const Account = require("../models/UserAccounts");
 
 function nowbdtime() {
   return moment().tz("Asia/Dhaka").format("DD/MM/YYYY hh:mm:ss A");

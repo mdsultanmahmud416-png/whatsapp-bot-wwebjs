@@ -1,5 +1,5 @@
 // mongoConfig.js
-const Config = require("./models/Config");
+const Config = require("../models/Config");
 
 // 🔹 Load
 async function loadMainConfigFromMongo() {
