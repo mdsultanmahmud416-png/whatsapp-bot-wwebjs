@@ -1,7 +1,7 @@
 // UserAccountsSchema বা models UserAccounts => UserAccounts folder 
 const mongoose = require("mongoose");
 
-const AccountSchema = new mongoose.Schema({
+const UserAccountsSchema = new mongoose.Schema({
   number: { type: String, unique: true },
   role: String,
   balance: Number,
@@ -13,4 +13,4 @@ const AccountSchema = new mongoose.Schema({
 
 module.exports =
   mongoose.models.Account ||
-  mongoose.model("Account", AccountSchema);
+  mongoose.model("UserAccounts", UserAccountsSchema);
