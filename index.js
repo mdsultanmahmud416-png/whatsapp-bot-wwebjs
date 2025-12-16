@@ -185,31 +185,6 @@ async function saveConfig() {
 // loadConfig();
 // watchConfig();
 
-// ===============================
-// 🔹 Load config on startup
-// ===============================
-(async () => {
-  try {
-    // 1️⃣ MongoDB connect আগে
-    await connectMongo();
-
-    // 2️⃣ তারপর config load
-    await loadConfig();
-
-    // 3️⃣ তারপর accountManager init
-    if (accountManager.init) {
-      await accountManager.init();
-    }
-
-    console.log("🚀 Bot startup completed");
-
-  } catch (err) {
-    console.error("❌ Startup failed:", err.message);
-    process.exit(1);
-  }
-})();
-
-
 // রিপোর্ট/লগ ফাইল পাথ
 function getReportPath(type) {
     const day = moment().format('YYYY-MM-DD');  // তারিখ অনুযায়ী ফোল্ডার তৈরি
@@ -1129,13 +1104,7 @@ client.on('disconnected', reason => {
     console.error('⚠️ Disconnected:', reason);
 });
 
-(async () => {
-    try {
-        await client.initialize();
-    } catch (err) {
-        console.error('❌ Init failed:', err);
-    }
-})();
+
 
 
 // ================== কমান্ড সিস্টেম ==================
@@ -3605,46 +3574,30 @@ client.on('message_reaction', async (reaction) => {
     await handleReaction(reaction);
 });
 
-// start client
-client.initialize();
+// ===============================
+// 🔹 Load config on startup
+// ===============================
+(async () => {
+  try {
+    // 1️⃣ MongoDB connect আগে
+    await connectMongo();
 
+    // 2️⃣ তারপর config load
+    await loadConfig();
 
+    // 3️⃣ তারপর accountManager init
+    if (accountManager.init) {
+      await accountManager.init();
+    }
 
+    // 4️⃣ সবশেষে WhatsApp client start
+    await client.initialize();
 
+    console.log("🚀 Bot startup completed");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  } catch (err) {
+    console.error("❌ Startup failed:", err.message);
+    process.exit(1);
+  }
+})();
 
