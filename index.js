@@ -17,10 +17,9 @@ const path = require('path');
 const moment = require('moment');
 const pdfParse = require('pdf-parse');
 const crypto = require('crypto');
-// const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
-const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager.adapter");
-const { loadMainConfigFromMongo, saveMainConfigToMongo } = require("./mongoConfig");
-const { connectMongo } = require("./mongoConnection");
+const { accountManager, reminderConfig, reminderConfigPath, chargeConfig, chargeConfigPath, checkOverdueDue } = require("./accountManager");
+const { loadMainConfigFromMongo, saveMainConfigToMongo } = require("./mongo/mongoMainConfig");
+const { connectMongo } = require("./mongo/mongoConnection");
 
 const delayProfile = {
     MsgForwardDelay: { min: 100, max: 500 }, // MsgForwardDelay এর জন্য র্যান্ডম ডিলে 500ms থেকে 1000ms
@@ -1198,7 +1197,7 @@ async function handleCommands(message) {
                             }
 
                             const reason = args.slice(2).join(" ") || "Deposit";
-                            const acc = accountManager.deposit(number, amount, reason);
+                            const acc = await accountManager.deposit(number, amount, reason);
                             // অ্যাডমিনকে রিপ্লাই
                             await message.reply(`✅ ${number} এ ${amount} টাকা যোগ হয়েছে। Balance: ${acc.balance}, Due: ${acc.due}`);
 
@@ -1590,7 +1589,7 @@ async function handleCommands(message) {
                                 return message.reply("❌ কান্ট্রি কোড সহ নাম্বার যুক্ত করুন!");
                             }
                             const reason = args.slice(2).join(" ") || "Manual Charge";
-                            const acc = accountManager.mcharge(number, amount, reason);
+                            const acc = await accountManager.mcharge(number, amount, reason);
                             // অ্যাডমিনকে রিপ্লাই
                             await message.reply(`✅ ${number} থেকে ${amount} টাকা কেটে দেওয়া হয়েছে। Balance: ${acc.balance}, Due: ${acc.due}`);
 
@@ -1653,7 +1652,7 @@ async function handleCommands(message) {
                         let refundAmount, reason, officeNumber = "", officeType = "";
 
                         // 🔹 AccountManager থেকে history নাও
-                        const accData = accountManager.getHistory(number).allHistory[0];
+                        const accData = await accountManager.getHistory(number).allHistory[0];
                         const accHistory = accData?.history || [];
 
                         // 🔹 Duplicate refund prevention
@@ -1695,7 +1694,7 @@ async function handleCommands(message) {
                         }
 
                         // 🔹 Refund process
-                        const updatedAcc = accountManager.refund(number, refundAmount, reason, cmdOrderKey, officeNumber, officeType);
+                        const updatedAcc = await accountManager.refund(number, refundAmount, reason, cmdOrderKey, officeNumber, officeType);
 
                         // 🔹 Admin log
                         console.log(`💸 REFUND: ${number} | Amount: ${refundAmount} | Reason: ${reason} | OrderKey: ${cmdOrderKey} | Office: ${officeType} / ${officeNumber}`);
@@ -1739,7 +1738,7 @@ async function handleCommands(message) {
                                 return message.reply("❌ কান্ট্রি কোড সহ নাম্বার যুক্ত করুন!");
                             }
                             // 🔹 রোল পরিবর্তন করা হচ্ছে
-                            const acc = accountManager.setRole(number, role);
+                            const acc = await accountManager.setRole(number, role);
                             // অ্যাডমিনকে রিপ্লাই
                             await message.reply(
                                 `✅ ${number} এর Role "${role}" সেট করা হয়েছে!\n` +
@@ -1816,7 +1815,7 @@ async function handleCommands(message) {
                 case "/duelist":
                     try {
                         // ফরম্যাটেড string রিটার্ন নেওয়া
-                        const dueListMsg = accountManager.getDueList({ asString: true });
+                        const dueListMsg = await accountManager.getDueList({ asString: true });
 
                         // যদি কোনো due না থাকে
                         if (!dueListMsg) {
@@ -1848,7 +1847,7 @@ async function handleCommands(message) {
                                 break;
                             }
 
-                            const acc = accountManager.getSummary(number);
+                            const acc = await accountManager.getSummary(number);
                             if (!acc) {
                                 await message.reply("❌ এই নম্বরের কোনো অ্যাকাউন্ট পাওয়া যায়নি!");
                                 break;
@@ -1888,7 +1887,7 @@ async function handleCommands(message) {
                                      const [role, autoChargeStr] = args;
                                      const autoCharge = parseFloat(autoChargeStr);
              
-                                     accountManager.setChargeRate(role, autoCharge);
+                                     await accountManager.setChargeRate(role, autoCharge);
              
                                      await message.reply(`✅ Charge updated for role "${role}".`);
                                  } catch (err) {
@@ -1902,7 +1901,7 @@ async function handleCommands(message) {
                             const [, role, autoChargeStr] = args;
                             const autoCharge = parseFloat(autoChargeStr);
 
-                            const result = accountManager.addChargeRate(role, autoCharge);
+                            const result = await accountManager.addChargeRate(role, autoCharge);
 
                             if (result.success) {
                                 await message.reply(`✅ New role "${role}" added with charge ${autoCharge}.`);
@@ -1914,7 +1913,7 @@ async function handleCommands(message) {
                             const [role, autoChargeStr] = args;
                             const autoCharge = parseFloat(autoChargeStr);
 
-                            const result = accountManager.setChargeRate(role, autoCharge);
+                            const result = await accountManager.setChargeRate(role, autoCharge);
 
                             if (result.success) {
                                 await message.reply(`✅ Charge updated for role "${result.role}".`);
@@ -3608,6 +3607,7 @@ client.on('message_reaction', async (reaction) => {
 
 // start client
 client.initialize();
+
 
 
 
